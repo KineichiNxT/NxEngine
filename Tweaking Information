@@ -1,0 +1,28 @@
+Okey dude... this is just a small information about tweaking android from me -KineichiNxT-
+
+
+-LMK:
+The Low Memory Killer is a constant debate between more free RAM and more multitasking capabilities as free RAM (more than 60MB free) is actually wasted RAM.
+The Low Memory Killer is actually a feature in the Android OS used to improve memory management.
+
+This is an important feature due to the perennial problem of having low free memory causing lagginess and slowness in launching apps. When you have free memory lingering around the number of 40MB or less, the Android OS just lags like hell.
+
+What this would mean is, you would want to tweak the LMK to not have the situation of it having less than 40MB (or even close to that).
+The modern Linux machine in the Android ecosystem relies on a mechanism called Low Memory Killer (LMK) to consistently free up RAM. This is due to Android's internal mechanism of caching apps (and never fully exiting them) when you press the back button. This is to enable faster app switching and provide a seamless experience for apps usage model. Android also, by itself will also constantly look for often used apps to cache them for faster app opening. This will happen even before your system fully boots.
+
+Now, when you mention LMK, the most obvious thoughts that come up are minfrees and Out Of Memory (OOM) groupings. Yes, those two are integral parts when it comes to LMK. The issue here is that no one actually mentioned that there are two LMK systems in Android, that being:
+- Linux LMK
+- Android Dalvik VM LMK
+
+
+-Busybox:
+Busybox is required to perform all of your superuser activities in your android phone. There are some problems associated with this when ROM developers decide to use a certain version of Busybox that are incompatible with the binaries that we use in our phones.
+
+-MinFree:
+Minfree is part of the Kernel used to multitasking and It differs from a Phone to another because of the RAM available in users space.
+
+-Entropy generator engine:
+This engine can reduce lag by keeping a section of the Android file system (/dev/random) full of random bits so that the system does not have to wait for the file system to generate them.
+
+-Zipalign:
+Zipalign is a tweak used to optimize Android application (.apk) files. The purpose is to ensure that all uncompressed data starts with a particular alignment relative to the start of the file. Specifically, it causes all uncompressed data within the .apk, such as images or raw files, to be aligned on 4-byte boundaries. This allows all portions to be accessed directly with mmap() even if they contain binary data with alignment restrictions. The benefit is a reduction in the amount of RAM consumed when running the application.
